@@ -1,0 +1,30 @@
+# Site settings
+name: 锡同
+email: zykimmy714@gmail.com
+author: Freud Kang
+url: ''
+resume_site: ''
+github: https://github.com/zengyu714
+baseurl: ''
+description: :)
+meta_description: ''
+motto: 临事而惧，好谋而成
+banner: ''
+
+#permalink: /:categories/:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title/
+paginate: 10
+
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+
+github_username: zykimmy714
+highlighter: Pygments
+
+# Build settings
+markdown: kramdown
+
+    # facebook :
+    #   appid : 123
+    #   num_posts: 5
+    #   width: 580
+    #   colorscheme: light
