@@ -41,23 +41,24 @@ tags:
 
   # construct an object
   deck = FrenchDeck()
+  ```  
+
+  + `collections.namedtuple()` creates tuple with **name** in each position. e.g.  
+
+  ```Python
+  from collections import namedtuple
+  Point = namedtuple('Point',['x','y'])
+  p = Point(5,12)
   ```
+  > `collections.namedtuple()`  can be used to build classes
+  of objects that are just bundles of attributes with no custom methods, like a database record.
 
-    +  `collections.namedtuple()` creates tuple with **name** in each position. e.g.  
+  Just like the `struct` in C with public access and the named fields but quiet easy-using and concise.  
 
-    ```Python
-    from collections import namedtuple
-    Point = namedtuple('Point',['x','y'])
-    p = Point(5,12)
-    ```
-    > `collections.namedtuple()`  can be used to build classes
-    of objects that are just bundles of attributes with no custom methods, like a database record.
-
-    Just like the `struct` in C with public access and the named fields but quiet easy-using and concise.  
-
-    + `list('JQKA')` and say, `'J Q K A'.split()` generate `list` beautifully.
+  + `list('JQKA')` and say, `'J Q K A'.split()` generate `list` beautifully.
 
 ### Then gain *iteration* and *index* to play with  
+
 #### sample  
   ```Python
   from random import choice
@@ -87,24 +88,26 @@ tags:
   ```
   **Supplement**: Accessing Lists  
 
-  + L[i:j] returns a new list, containing the objects between i and j  
+  + L[i:j] returns a new list, containing the objects between i and j   
+
   ```python
   n = len(L)
   item = L[index]
   seq = L[start:stop]
-  ```
+  ```  
 
   + Lists also support slice *steps*:  
-  seq = L[start:stop:step]
+  seq = L[start:stop:step]  
+
   ```python
   seq = L[::2] # get every other item, starting with the first
   seq = L[1::2] # get every other item, starting with the second
   ```    
 
 #### sort   
+  ```python  
 
-  ```python
-  suit_values = dict(spades = 3, hearts = 2, diamonds = 1, clubs = 0)
+  suit_values = dict(spades = 3, hearts = 2, diamonds = 1, clubs = 0)  
 
   def spades_high(card):
       rank_value = FrenchDeck.ranks.index(card.rank)
@@ -147,12 +150,13 @@ class Vector:
     def __mul__(self,scalar):
         return Vector(self.x*scalar,self.y*scalar)
 ```
-+ `hypot(x,y)` returns $\sqrt{x^2 + y^2}$
-+ `return bool(self.x or self.y)` better than `return bool(abs(self))`
-+ Difference between \__str\__ and \__repr\__ in Python, see [more](http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python "stackoverflow")  
-   + \__repr\__ goal is to be unambiguous, understanding the object, placeholder `%r`
-   + \__str\__ goal is to be readable, optional implemention, placeholder `%s`
-   + \__repr\__ overrides \__str\__
++ `hypot(x,y)` returns sqrt(x^2 + y^2)
++ `return bool(self.x or self.y)` better than `return bool(abs(self))`  
+### \__str__ and \__repr__
+Difference between \__str\__ and \__repr\__ in Python, see [more](http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python "stackoverflow")  
+ + \__repr\__ goal is to be unambiguous, understanding the object, placeholder `%r`
+ + \__str\__ goal is to be readable, optional implemention, placeholder `%s`
+ + \__repr\__ overrides \__str\__
 
 ## Summary  
 > By implementing special methods, your objects can behave like the built-in types, enabling
