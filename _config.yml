@@ -1,15 +1,15 @@
 # Site settings
-name: 曾大雨
+name: A Brief Story of Time
 email: zykimmy714@gmail.com
-author: kimmy
-url: ''
+author: Zengyu
+url: https://zengyu714.github.io
 resume_site: ''
 github: https://github.com/zengyu714
 baseurl: ''
 description: 临事而惧，好谋而成
-meta_description: ''
-motto:
-banner: ''
+meta_description: zen
+motto: Make lives extraordinary
+banner: 学无止境
 
 #permalink: /:categories/:year/:month/:day/:title/
 permalink: /:categories/:year/:month/:day/:title/
