@@ -13,7 +13,7 @@ tags:
 {:toc}
 
 
-# Example: define named tuple about a student
+## Example: define named tuple about a student
 
 
 ```python
@@ -22,7 +22,7 @@ Student = namedtuple('Student','name age grade')
 olivia = Student('olivia','20',('A+','Excellent'))
 ```
 
-## Access the fields by name or position
+### Access the fields by name or position
 
 
 ```python
@@ -48,7 +48,7 @@ olivia.age
 
 
 
-## `_fields` class attribute
+### `_fields` class attribute
 
 
 ```python
@@ -62,7 +62,7 @@ Student._fields
 
 
 
-## `_make(iterable)` class method
+### `_make(iterable)` class method
 instantiate a named tuple from an iterable
 
 
@@ -81,7 +81,7 @@ print jedi
     Student(name='jedi', age=90, grade=('B', 'Good'))
 
 
-## `_asdict()` instance method
+### `_asdict()` instance method
 can be used to produce a nice display of city data.
 
 
@@ -144,7 +144,8 @@ type(jedi._asdict()['grade'])
 
 
 
-# KEYNOTES
+## KEYNOTES
+---
 1. `collections.namedtuple(...,verbose = True)` could see the details
 2. build classes of objects that are just bundles of attributes with no custom methods
 3. the use of `typename`

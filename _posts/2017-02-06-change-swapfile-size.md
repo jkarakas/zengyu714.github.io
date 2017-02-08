@@ -2,7 +2,7 @@
 layout: post
 title:  Change Swapfile Size
 date:   2017-02-06 23:47:14 +08:00
-categories: Notes
+categories: Linux
 tags:
 - Raspbian
 - Linux
@@ -30,10 +30,12 @@ RASPBERRY PI 3 MODEL B has 1GB RAM, and error occurs when compiling YCM `sudo py
 **Solution 1**
 ---------------------------------------------
  Add more swap memory  
+
 ```bash     
 free -h # check how much memory available, similar with 'top' command in some ways  
 sudo swapon -s
 ```
+
 
 >Raspian uses a script dphys-swapfile to manage swap. The standard image includes this turned on by default. The configuration files is located at **/etc/dphys-swapfile**
 

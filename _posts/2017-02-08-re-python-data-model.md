@@ -13,7 +13,7 @@ tags:
 {:toc}
 
 
-## How to behave as *sequences*
+## How to behave as **sequences**
 +  `__getitem__`
 +  `__len__`
 
@@ -46,7 +46,8 @@ deck = FrenchDeck()
 1. `collections.namedtuple()` creates tuple with **name** in each position  
 2. `list('JQKA')` and say, `'J Q K A'.split()` generate `list` beautifully
 
-## Gain *iteration* and *index*  
+## Gain **iteration** and **index**  
+
 ### Sample
 ```Python
 from random import choice
@@ -92,7 +93,7 @@ def spades_high(card):
 2. `a_list.index(a)` is similar to `index = find(A == a)` in Matlab
 3.  Structure in FrenchDeck is basically a 2-D array and 'rank' represents 'rows' while 'suit' represents 'columns', so index here is `r * len(c) + c`  
 
-## Emulating *numeric* types
+## Emulating **numeric** types
 ```python
 from math import hypot
 
@@ -116,12 +117,13 @@ class Vector:
     def __mul__(self,scalar):
         return Vector(self.x*scalar,self.y*scalar)
 ```
+
 #### KEYNOTE
 ---
 1. `hypot(x,y)` returns sqrt(x^2 + y^2)
 2. `return bool(self.x or self.y)` better than `return bool(abs(self))`  
 
-## About *str* and *repr*
+## About **str** and **repr**
 Difference between \__str\__ and \__repr\__ in Python, see [more](http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python "stackoverflow")  
 
 1. \__repr\__ goal is to be unambiguous, understanding the object, placeholder `%r`

@@ -21,6 +21,7 @@ n = len(L)
 item = L[index]
 seq = L[start:stop]
 ```  
+
 ## L [start:stop:step]  
 Lists also support slice *steps*, which is the last item!  
 ```python
@@ -30,4 +31,5 @@ seq = L[1::2] # get every other item, starting with the second
 ```    
 
 ## KEYNOTE
+---
 To evaluate the expression seq[start:stop:step], Python calls `seq.__getitem__(slice(start, stop, step))`
