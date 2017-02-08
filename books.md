@@ -18,6 +18,7 @@ permalink: /books/
 
 ### Reading
 + [Fluent Python](http://shop.oreilly.com/product/0636920032519.do "Fluent Python")
++ [巨人的陨落](https://book.douban.com/subject/26698660/ "Fall of Giants")
 
 ### List  
 + 《重构》
