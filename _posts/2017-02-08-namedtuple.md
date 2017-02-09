@@ -1,7 +1,7 @@
 ---
 author: kimmy
 layout: post
-title:  "Named tuples"
+title:  "Named Tuples"
 date:   2017-02-08 23:30:06 +08:00
 categories: Python
 tags:
