@@ -24,13 +24,13 @@ highlighter: rouge
 markdown: kramdown
 
 
-# FB:
-#   comments :
-#     provider : duoshuo
-#     duoshuo:
-#         short_name : 多说账户
-#     disqus :
-#         short_name : Disqus账户
+FB:
+  comments :
+    provider : disqus
+    # duoshuo:
+    #     short_name : zengyu714
+    disqus :
+        short_name : zengyu714
 
     # facebook :
     #   appid : 123
