@@ -15,7 +15,8 @@ tags:
 
 **Problem**
 ---------------------------------------------
-RASPBERRY PI 3 MODEL B has 1GB RAM, and error occurs when compiling YCM `sudo python ./install.py`.
+RASPBERRY PI 3 MODEL B has 1GB RAM, and error occurs when compiling YCM   
+`sudo python ./install.py`.
 
 > ...  
 > ...  
@@ -32,12 +33,14 @@ RASPBERRY PI 3 MODEL B has 1GB RAM, and error occurs when compiling YCM `sudo py
  Add more swap memory  
 
 ```bash     
-free -h # check how much memory available, similar with 'top' command in some ways  
-sudo swapon -s
+free -h         # check how much memory available, similar with 'top' command in some ways  
+sudo swapon -s  # Display swap usage summary by device
 ```
 
 
->Raspian uses a script dphys-swapfile to manage swap. The standard image includes this turned on by default. The configuration files is located at **/etc/dphys-swapfile**
+>Raspian uses a script dphys-swapfile to manage swap.   
+The standard image includes this turned on by default.  
+The configuration files is located at **/etc/dphys-swapfile**
 
 ```bash  
 sudo vim /etc/dphys-swapfile

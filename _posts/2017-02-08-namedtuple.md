@@ -150,16 +150,17 @@ type(jedi._asdict()['grade'])
 2. build classes of objects that are just bundles of attributes with no custom methods
 3. the use of `typename`
 
-  ```python
-  Point=namedtuple('whatsmypurpose',['x','y']) # (verbose=True) tells the answer
-  p_temp = Point(3,4)
-  print p_temp
-  ```
+ ```python
+Point=namedtuple('whatsmypurpose',['x','y']) # (verbose=True) tells the answer
+p_temp = Point(3,4)
+print p_temp
+```
 
-  ```
-  whatsmypurpose(x=3, y=4)  
-  <class '__main__.whatsmypurpose'>
-  ```
+    whatsmypurpose(x=3, y=4)
+    <class '__main__.whatsmypurpose'>
 
 
+
+
+<br>
 > [Fluent Python](http://shop.oreilly.com/product/0636920032519.do "Fluent Python"), Chapter 2

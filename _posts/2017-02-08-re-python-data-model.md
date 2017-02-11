@@ -49,7 +49,8 @@ deck = FrenchDeck()
 ## Gain **iteration** and **index**  
 
 ### Sample
-```Python
+
+```python
 from random import choice
 choice(deck)
 # [out]:
@@ -57,7 +58,7 @@ choice(deck)
 ```  
 
 ### Index:
-```Python
+```python
 deck[:3]
 # [out]:
 # [Card(rank='2', suit='spades'),
