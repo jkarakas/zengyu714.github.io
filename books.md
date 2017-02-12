@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Book list
+title: Book List
 permalink: /books/
 ---
 

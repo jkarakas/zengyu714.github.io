@@ -1,7 +1,7 @@
 ---
 author: kimmy
 layout: post
-title:  "Regular expressions"
+title:  "Regular Expressions"
 date:   2017-02-11 19:03:03 +08:00
 categories: Python
 tags:
