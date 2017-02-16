@@ -17,7 +17,7 @@ tags:
 
 
 
-## Decorators' power
+## Decorators' Power
 ### Replace the decorated function with a different one
 
 
@@ -55,7 +55,7 @@ ordinary_function()
 
 As known as import time
 
-## Case study, see previous [implementation](https://zengyu714.github.io/python/2017/02/12/little-about-design-patterns/)
+## Case Study, see previous [implementation](https://zengyu714.github.io/python/2017/02/12/little-about-design-patterns/)
 
 
 ```python
@@ -112,7 +112,7 @@ def best_promo(order):
   + doesn't need to use special names, e.g. `_promo` suffix.
   + is flexible, comment out the decorator if want to disable a promotion.
 
-## Try a simple decorator
+## Try a Simple Decorator
 
 clocks every invocation of the decorated function and
 prints the elapsed time, the arguments passed, and the result of the call.

@@ -17,7 +17,7 @@ tags:
 
 # Dict
 
-## Build a dict commonly
+## Build a `dict` Commonly
 
 
 ```python
@@ -111,10 +111,10 @@ color_dict
 
 ###  KEYNOTE
 ---
-`iter()` returns a real list of 2-tuples ([(key, value), (key, value), ...])  
+`iter()` returns a real list of 2-tuples ([(key, value), (key, value), ...])
 `iteritems()` returns a generator "creates" (key, value) at a time
 
-## `defaultdict`: Solving missing keys
+## `defaultdict`: solving missing keys
 
 
 ```python
@@ -139,7 +139,7 @@ class StrKeyDict0(dict):             # StrKeyDict0 inherits from dict
 
     def get(self, key, default=None):# NOTE 1
         try:
-            return self[key]         
+            return self[key]
         except KeyError:             # NOTE 2
             return default
 
@@ -158,14 +158,14 @@ print d.get(3)                       # NOTE 4
 
 ### KEYNOTE
 ---
-1. The `get` method delegates to `__getitem__` by using the `self[key]` notation;   
+1. The `get` method delegates to `__getitem__` by using the `self[key]` notation;
     If key is not exist, `__missing__` method would be executed.
 2. If a KeyError was raised, `__missing__` already failed, so we return the default.
 3. Do not check for the key in the usual Pythonic way, `k in my_dict`, because
     `str(key) in self` would **recursively** call `__contains__`. We avoid this by explicitly
-    looking up the `key in self.keys()`.  
+    looking up the `key in self.keys()`.
 
-4. [CAREFULLY] : )  
+4. [CAREFULLY] : )
     Must using `d.get(key)` notation, otherwise d[3] directly runs into `__missing__`, and `try...except...` didn't be triggered
 
 # Collections
@@ -197,11 +197,11 @@ type(my_dict)
 
 
 Using `isinstance` is better than checking `type(arg) == dict`,
-because then alternative **mapping types** can be used.  
+because then alternative **mapping types** can be used.
 Mapping types in the standard library implement the basic `dict`.In other words, `dict type` ∈ `Mapping type`
 
 ## `collections.OrderedDict`
-`popitem` method pops the first item by default,   
+`popitem` method pops the first item by default,
 but if called as `my_odict.popitem(last=True)`, it pops the last item added.
 
 ## `collections.ChainMap`
@@ -220,7 +220,7 @@ is very helpful in data science, see [more](https://docs.python.org/3/library/co
 
 ## Subclassing `UserDict`
 
-StrKeyDict derived from `UserDict` always converts non-string keys to str: on insertion, update, and lookup.  
+StrKeyDict derived from `UserDict` always converts non-string keys to str: on insertion, update, and lookup.
 Compared to be inherited from `Dict`.
 
 
@@ -250,7 +250,7 @@ class StrKeyDict(collections.UserDict):
 # Hashable
 > An object is hashable if it has a hash value which never changes during its lifetime (it
 needs a `__hash__()` method), and can be compared to other objects (it needs an
-`__eq__()` method).   
+`__eq__()` method).
 Hashable objects which compare equal must have the same hash
 value.
 

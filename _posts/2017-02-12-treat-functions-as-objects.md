@@ -14,7 +14,7 @@ tags:
 
 
 
-## Consider a function like an **object**
+## Consider a Function as An **object**
 
 ### Example
 
@@ -186,12 +186,12 @@ list(map(factorial,filter(lambda x: x & 0x1, range(7))))
 ### Use `sum` rather than `reduce`
 
 Apply some operation with previous results in a sequence, until reducing a sequence of values to a single
-value.  
+value.
 Others reducing functions like `any(iterabe)` , `any(iterable)`
 
 ## Anonymous Functions
 
-The body part of lambda functions should be pure expressions.  
+The body part of lambda functions should be pure expressions.
 Most used in the argument of higher-order functions
 
 
@@ -207,7 +207,7 @@ sorted(mess, key = lambda x : x[::-1])
 
 
 ## User-Defined Callable Types
-> Following example from Fluent Python chapter 5  
+> Following example from Fluent Python chapter 5
 A randomPick class does one thing: picks items from a shuffled list
 
 
@@ -270,14 +270,14 @@ callable(test) # 3
 ### KEYNOTE
 ---
 1. `__init__` accepts any iterable; building a local copy prevents unexpected side
-    effects on any list passed as an argument  
-2. — `randomPick()` is an alias of `randomPick.pick()`.  
+    effects on any list passed as an argument
+2. — `randomPick()` is an alias of `randomPick.pick()`.
   — Implementing `__call__` is an easy way to create function-like objects that have
     some **internal state** that must be kept across invocations.
 
 3. `callable()` built-in to identify whether a callable object.
 
-## Function-specific attributes
+## Function-specific Attributes
 `set(function) - set(user-defined object)`
 
 
@@ -301,22 +301,22 @@ print(sorted(set(dir(func)) - set(dir(obj))))
 
 ### KETNOTE
 ---
-1. `dir()`  
-    Without arguments, return the list of names in the **current local scope**.  
+1. `dir()`
+    Without arguments, return the list of names in the **current local scope**.
     With an argument, attempt to return a list of valid attributes for that object.
-2. `pass` can be used when a statement is **required syntactically** but the program requires no action.   
-    Also can be used as a place-holder to help think at a more abstract level.   
+2. `pass` can be used when a statement is **required syntactically** but the program requires no action.
+    Also can be used as a place-holder to help think at a more abstract level.
     Here is creating minimal classes/functions.
 3. Making clever use of **set difference**.
 
-## Functional Programming: `operator` and `functools` package
+## Functional Programming: `operator` and `functools` Package
 
 
 ```python
 from functools import reduce
 ```
 
-`reduce` applies a function of **two arguments** cumulatively to the items of a sequence,  
+`reduce` applies a function of **two arguments** cumulatively to the items of a sequence,
     from left to right, so as to reduce the sequence to a single value.
 ### `lambda`
 
@@ -400,8 +400,8 @@ student_obj = [Student(name, age, Performance(score,comment))
                    for name, age, (score,comment) in student_data]
 ```
 
-NOTE:  
-1. **nested** tuple unpacking to extract (score, comment)  
+NOTE:
+1. **nested** tuple unpacking to extract (score, comment)
 2. build the `Performance(score,comment)` for the `grade` attribute of `Student`
 
 
@@ -458,7 +458,7 @@ make_upper(s)
 
 
 
-`methodcaller` can also do a partial application to freeze some arguments,   
+`methodcaller` can also do a partial application to freeze some arguments,
 like the `functools.partial` function does.
 
 

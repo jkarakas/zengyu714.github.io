@@ -16,7 +16,7 @@ tags:
 
 
 
-## Case study
+## Case Study
 
 ### Function-Oriented Strategy
 
