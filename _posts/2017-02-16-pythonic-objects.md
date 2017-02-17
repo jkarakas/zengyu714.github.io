@@ -1,7 +1,7 @@
 ---
 author: kimmy
 layout: post
-title:  "Pythonic Object Attributes "
+title:  "Pythonic Object Attributes Part1"
 date:   2017-02-16 19:20:33 +08:00
 categories: Python
 tags:
