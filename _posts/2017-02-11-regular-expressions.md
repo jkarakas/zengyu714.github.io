@@ -19,7 +19,7 @@ tags:
 ## `str` Versus `bytes` in Regular Expressions
 
 
-```python
+{% highlight python %}
 # reference: Fluent Python Chapter 4
 
 import re
@@ -40,7 +40,7 @@ print(' bytes:', re_numbers_bytes.findall(text_bytes))
 print('Words')
 print(' str :', re_words_str.findall(text_str))
 print(' bytes:', re_words_bytes.findall(text_bytes))
-```
+{% endhighlight %}
 
     Text
      'Ramanujan saw ௧௭௨௯ as 1729 = 1³ + 12³ = 9³ + 10³.'

@@ -20,14 +20,14 @@ tags:
 ## Build a `dict` Commonly
 
 
-```python
+{% highlight python %}
 a = dict(one=1, two=2, three=3)
 b = {'one': 1, 'two': 2, 'three': 3}
 c = dict(zip(['one','two','three'],[1,2,3]))
 # don't need to type commas and quotes :)
 c_plus = dict(zip('one two three'.split(),[1,2,3]))
 a == b == c
-```
+{% endhighlight %}
 
 
 
@@ -39,7 +39,7 @@ a == b == c
 ## Build with *dict comprehensions*
 
 
-```python
+{% highlight python %}
 # produce key:value pairs
 colors = [
      ('Black','#000000'),
@@ -51,13 +51,13 @@ colors = [
      ('Cyan','#00FFFF'),
      ('Magenta','#FF00FF')
 ]
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 color_dict = {name: rgb for name, rgb in colors}
 color_dict
-```
+{% endhighlight %}
 
 
 
@@ -74,11 +74,11 @@ color_dict
 
 
 
-```python
+{% highlight python %}
 # directlt construct `{}`
 {name.upper(): rgb for name, rgb in color_dict.items()
                    if len(name) > 4}
-```
+{% endhighlight %}
 
 
 
@@ -91,9 +91,9 @@ color_dict
 
 
 
-```python
+{% highlight python %}
 {name.upper(): rgb for name, rgb in color_dict.iteritems()}
-```
+{% endhighlight %}
 
 
 
@@ -117,10 +117,10 @@ color_dict
 ## `defaultdict`: solving missing keys
 
 
-```python
+{% highlight python %}
 import collections
 dd = collections.defaultdict(list)
-```
+{% endhighlight %}
 
 `default_factory`: Factory for default value called by `__missing__()`
 
@@ -129,7 +129,7 @@ dd = collections.defaultdict(list)
 > Example from Fluent Python Chapter 3
 
 
-```python
+{% highlight python %}
 class StrKeyDict0(dict):             # StrKeyDict0 inherits from dict
 
     def __missing__(self, key):
@@ -145,13 +145,13 @@ class StrKeyDict0(dict):             # StrKeyDict0 inherits from dict
 
     def __contains__(self, key):     # NOTE 3
         return key in self.keys() or str(key) in self.keys()
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 d = StrKeyDict0([(2, 'two'), ('4', 'four')])
 print d.get(3)                       # NOTE 4
-```
+{% endhighlight %}
 
     None
 
@@ -173,21 +173,21 @@ print d.get(3)                       # NOTE 4
 ## `isinstance()`
 
 
-```python
+{% highlight python %}
 import collections
 my_dict = {}
 print isinstance(my_dict, collections.Mapping)
 print isinstance(my_dict, collections.MutableMapping)
-```
+{% endhighlight %}
 
     True
     True
 
 
 
-```python
+{% highlight python %}
 type(my_dict)
-```
+{% endhighlight %}
 
 
 
@@ -208,12 +208,12 @@ but if called as `my_odict.popitem(last=True)`, it pops the last item added.
 Example of simulating Python’s internal lookup chain:
 
 
-```python
+{% highlight python %}
 # pip install future --upgrade
 import builtins
 # collections has no attribute 'ChainMap
 pylookup = collections.ChainMap(locals(), globals(), vars(builtins))
-```
+{% endhighlight %}
 
 ## `collections.Counter`
 is very helpful in data science, see [more](https://docs.python.org/3/library/collections.html#collections.Counter "Counter")
@@ -224,7 +224,7 @@ StrKeyDict derived from `UserDict` always converts non-string keys to str: on in
 Compared to be inherited from `Dict`.
 
 
-```python
+{% highlight python %}
 import collections
 class StrKeyDict(collections.UserDict):
 
@@ -239,7 +239,7 @@ class StrKeyDict(collections.UserDict):
     # Note 2
     def __setitem__(self, key, item):
         self.data[str(key)] = item
-```
+{% endhighlight %}
 
 ###  KEYNOTE
 ---
@@ -255,10 +255,10 @@ Hashable objects which compare equal must have the same hash
 value.
 
 
-```python
+{% highlight python %}
 absolutely_immutable_tuple = (1,2,(3,4))
 hash(immutable_tuple_absolutely)
-```
+{% endhighlight %}
 
 
 
@@ -268,10 +268,10 @@ hash(immutable_tuple_absolutely)
 
 
 
-```python
+{% highlight python %}
 partly_immutable_tuple = (1,2,[3,4])
 hash(partly_immutable_tuple)
-```
+{% endhighlight %}
 
 
     ---------------------------------------------------------------------------
@@ -289,10 +289,10 @@ hash(partly_immutable_tuple)
 Convert unhashable type `list` to hashable
 
 
-```python
+{% highlight python %}
 forcedly_hashable = (1,2,frozenset([3,4]))
 hash(forcedly_hashable)
-```
+{% endhighlight %}
 
 
 

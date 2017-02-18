@@ -20,12 +20,12 @@ tags:
 ## `reprlib` : produce limited-length representations
 
 
-```python
+{% highlight python %}
 def __repr__(self):
     components = reprlib.repr(self._components)      # 1
     components = components[components.find('['):-1] # 2
     return 'Vector({}).format(components)'
-```
+{% endhighlight %}
 
 1. `generates, e.g., `array('d', [0.0, 1.0, 2.0, 3.0, 4.0, ...])`
 2. remove prefix `array('d'` and trailing `)`
@@ -34,7 +34,7 @@ def __repr__(self):
 ## `__len__` and `__getitem__`: constitute the **sequence protocol**
 
 
-```python
+{% highlight python %}
 class Vector:
     # many lines omitted
     # ...
@@ -44,16 +44,16 @@ class Vector:
 
     def __getitem__(self, index):
         return self._components[index]
-```
+{% endhighlight %}
 
 ### Problem
 a slice of a `Vector` was not a `Vector` instance but a `array`
 
 
-```python
+{% highlight python %}
 v7 = Vector(range(7))
 v7[1:4]
-```
+{% endhighlight %}
 
 
 
@@ -65,18 +65,18 @@ v7[1:4]
 ### How Slicing Works
 
 
-```python
+{% highlight python %}
 class MySeq:
     def __getitem__(self, index):
         return index
 
 s = MySeq()
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 s[1]
-```
+{% endhighlight %}
 
 
 
@@ -86,9 +86,9 @@ s[1]
 
 
 
-```python
+{% highlight python %}
 s[1:4]
-```
+{% endhighlight %}
 
 
 
@@ -98,9 +98,9 @@ s[1:4]
 
 
 
-```python
+{% highlight python %}
 s[1:4:2]
-```
+{% endhighlight %}
 
 
 
@@ -110,9 +110,9 @@ s[1:4:2]
 
 
 
-```python
+{% highlight python %}
 s[1:4:2,3]    # 1
-```
+{% endhighlight %}
 
 
 
@@ -122,9 +122,9 @@ s[1:4:2,3]    # 1
 
 
 
-```python
+{% highlight python %}
 s[1:4:2,3:5]  # 2
-```
+{% endhighlight %}
 
 
 
@@ -141,7 +141,7 @@ s[1:4:2,3:5]  # 2
 ### Solution
 
 
-```python
+{% highlight python %}
 import numbers
 def __len__(self):
     return len(self._components)
@@ -155,7 +155,7 @@ def __getitem__(self, index):
     else:
         msg = '{cls.__name__} indices must be integers'
         raise TypeError(msg.format(cls=cls))
-```
+{% endhighlight %}
 
 ### KEYNOTE
 ---
@@ -165,18 +165,18 @@ def __getitem__(self, index):
    return the specific item from `_components`.
 3. SKILLS to LEARN
    + `isinstance`: the test against `numbers.Integral`—an Abstract Base Class
-   + ```msg = '{cls.__name__} indices must be integers'
-     raise TypeError(msg.format(cls=cls))```
+   + {% highlight python %}msg = '{cls.__name__} indices must be integers'
+     raise TypeError(msg.format(cls=cls)){% endhighlight %}
 
 
-```python
+{% highlight python %}
 v7 = Vector(range(7))
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 v7[0]
-```
+{% endhighlight %}
 
 
 
@@ -186,9 +186,9 @@ v7[0]
 
 
 
-```python
+{% highlight python %}
 v7[2:6]
-```
+{% endhighlight %}
 
 
 
@@ -198,9 +198,9 @@ v7[2:6]
 
 
 
-```python
+{% highlight python %}
 v7[-1:]
-```
+{% endhighlight %}
 
 
 
@@ -213,9 +213,9 @@ NOTE
 A slice of `len == 1` also creates a `Vector`.
 
 
-```python
+{% highlight python %}
 v7[1,2]
-```
+{% endhighlight %}
 
 
     ---------------------------------------------------------------------------
@@ -240,7 +240,7 @@ v7[1,2]
 ## `__getattr__`: is invoked by the interpreter when attribute lookup fails
 
 
-```python
+{% highlight python %}
 shortcut_names = 'xyzt'
 
 def __getattr__(self, name):
@@ -251,10 +251,10 @@ def __getattr__(self, name):
             return self._components[pos]
     msg = '{.__name__!r} object has no attribute {!r}'# 2
     raise AttributeError(msg.format(cls, name))
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 def __setattr__(self, name, value):
     cls = type(self)
     if len(name) == 1:
@@ -268,7 +268,7 @@ def __setattr__(self, name, value):
             msg = error.format(cls_name=cls.__name__, attr_name=name)
             raise AttributeError(msg)   # 3
     super().__setattr__(name, value)    # 4
-```
+{% endhighlight %}
 
 ### KEYNOTE
 ---
@@ -286,13 +286,13 @@ to avoid inconsistent behavior in your objects
 ###  Calculating the accumulated xor
 
 
-```python
+{% highlight python %}
 # Solution 1
 n = 0
 for i in range(1, 6):
     n ^= i
 n
-```
+{% endhighlight %}
 
 
 
@@ -302,11 +302,11 @@ n
 
 
 
-```python
+{% highlight python %}
 # Solution 2
 import functools
 functools.reduce(lambda a, b: a^b, range(6))
-```
+{% endhighlight %}
 
 
 
@@ -316,11 +316,11 @@ functools.reduce(lambda a, b: a^b, range(6))
 
 
 
-```python
+{% highlight python %}
 # Solution 3
 import operator
 functools.reduce(operator.xor, range(6))
-```
+{% endhighlight %}
 
 
 
@@ -339,9 +339,9 @@ returning tuples that you can unpack into variables, one for each item in the pa
 + `zip` returns a generator that produces tuples on demand
 
 
-```python
+{% highlight python %}
 zip(range(3), 'ABC')
-```
+{% endhighlight %}
 
 
 
@@ -353,9 +353,9 @@ zip(range(3), 'ABC')
 + usually iterate over the generator, here for display
 
 
-```python
+{% highlight python %}
 list(zip(range(3), 'ABC'))
-```
+{% endhighlight %}
 
 
 
@@ -367,9 +367,9 @@ list(zip(range(3), 'ABC'))
 + `zip` will stop at the shortest operand.
 
 
-```python
+{% highlight python %}
 list(zip(range(3), 'ABC', [0.0, 1.1, 2.2, 3.3]))
-```
+{% endhighlight %}
 
 
 
@@ -381,10 +381,10 @@ list(zip(range(3), 'ABC', [0.0, 1.1, 2.2, 3.3]))
 + `enumerate`: get the **index** conveniently
 
 
-```python
+{% highlight python %}
 seasons = ['Spring', 'Summer', 'Fall', 'Winter']
 list(enumerate(seasons))
-```
+{% endhighlight %}
 
 
 
@@ -396,7 +396,7 @@ list(enumerate(seasons))
 + As to `Vector`
 
 
-```python
+{% highlight python %}
 def __eq__(self, other):
     if len(self) != len(other):
         return False
@@ -404,19 +404,19 @@ def __eq__(self, other):
         if a != b:
             return False
     return True
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 # using zip and all
 def __eq__(self, other):
     return len(self) == len(other) and all(a == b for a, b in zip(self, other))
-```
+{% endhighlight %}
 
 ### Details in `Vector` Class
 
 
-```python
+{% highlight python %}
 import functools
 import operator
 
@@ -441,7 +441,7 @@ class Vector:
 #         return functools.reduce(operator.xor, hashes)
 #
 # -------------------------------------------------------
-```
+{% endhighlight %}
 
 ___
 It's a good practice to provide the third argument, `reduce(function, iterable, initializer)`.

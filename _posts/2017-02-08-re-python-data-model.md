@@ -17,7 +17,7 @@ tags:
 +  `__getitem__`
 +  `__len__`
 
-```python
+{% highlight python %}
 import collections
 # construct a class quickly
 Card = collections.namedtuple('Card',['rank','suit'])
@@ -39,7 +39,7 @@ class FrenchDeck:
 
 # construct an object
 deck = FrenchDeck()
-```
+{% endhighlight %}
 
 #### KEYNOTE
 ---
@@ -50,15 +50,15 @@ deck = FrenchDeck()
 
 ### Sample
 
-```python
+{% highlight python %}
 from random import choice
 choice(deck)
 # [out]:
 # Card(rank='10', suit='diamonds')
-```
+{% endhighlight %}
 
 ### Index:
-```python
+{% highlight python %}
 deck[:3]
 # [out]:
 # [Card(rank='2', suit='spades'),
@@ -77,18 +77,18 @@ deck[12::13]
 #  Card(rank='A', suit='diamonds'),
 #  Card(rank='A', suit='clubs'),
 #  Card(rank='A', suit='hearts')]
-```
+{% endhighlight %}
 
 ### Sort
-```python
+{% highlight python %}
 suit_values = dict(spades = 3, hearts = 2, diamonds = 1, clubs = 0)
 
 def spades_high(card):
     rank_value = FrenchDeck.ranks.index(card.rank)
     return rank_value * len(suit_values) + suit_values[card.suit]
-```
+{% endhighlight %}
 
-#### KEYNOTE  
+#### KEYNOTE
 ---
 1. Assign `str` numerical values to make sort feasible
 2. `a_list.index(a)` is similar to `index = find(A == a)` in Matlab
@@ -96,7 +96,7 @@ def spades_high(card):
 
 ## Emulating **numeric** Types
 
-```python
+{% highlight python %}
 from math import hypot
 
 class Vector:
@@ -118,7 +118,7 @@ class Vector:
 
     def __mul__(self,scalar):
         return Vector(self.x*scalar,self.y*scalar)
-```
+{% endhighlight %}
 
 #### KEYNOTE
 ---
@@ -126,11 +126,11 @@ class Vector:
 2. `return bool(self.x or self.y)` better than `return bool(abs(self))`
 
 ## About **str** and **repr**
-Difference between \__str\__ and \__repr\__ in Python, see [more](http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python "stackoverflow")
+Difference between `__str__` and `__repr__` in Python, see [more](http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python "stackoverflow")
 
-1. \__repr\__ goal is to be unambiguous, understanding the object, placeholder `%r`
-2. \__str\__ goal is to be readable, optional implemention, placeholder `%s`
-3. \__repr\__ overrides \__str\__
+1. `__repr__` goal is to be unambiguous, understanding the object, placeholder `%r`
+2. `__str__` goal is to be readable, optional implemention, placeholder `%s`
+3. `__repr__` overrides `__str__`
 
 ## Summary
 Implementing special methods like `__repr__`, `__getitem__`, could be more **generalizable** among available packages other than reinventing wheels.

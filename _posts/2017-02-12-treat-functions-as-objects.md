@@ -19,16 +19,16 @@ tags:
 ### Example
 
 
-```python
+{% highlight python %}
 def factorial(n):
     '''return n!'''
     return 1 if n < 2 else n*factorial(n-1)
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 factorial(5)
-```
+{% endhighlight %}
 
 
 
@@ -38,9 +38,9 @@ factorial(5)
 
 
 
-```python
+{% highlight python %}
 factorial.__class__
-```
+{% endhighlight %}
 
 
 
@@ -50,17 +50,17 @@ factorial.__class__
 
 
 
-```python
+{% highlight python %}
 print(type(factorial))
-```
+{% endhighlight %}
 
     <class 'function'>
 
 
 
-```python
+{% highlight python %}
 factorial.__doc__
-```
+{% endhighlight %}
 
 
 
@@ -70,9 +70,9 @@ factorial.__doc__
 
 
 
-```python
+{% highlight python %}
 help(factorial)
-```
+{% endhighlight %}
 
     Help on function factorial in module __main__:
 
@@ -82,9 +82,9 @@ help(factorial)
 
 
 
-```python
+{% highlight python %}
 map(factorial,range(11))
-```
+{% endhighlight %}
 
 
 
@@ -94,9 +94,9 @@ map(factorial,range(11))
 
 
 
-```python
+{% highlight python %}
 list(map(factorial,range(11)))
-```
+{% endhighlight %}
 
 
 
@@ -115,24 +115,24 @@ list(map(factorial,range(11)))
 ### `sorted` and its optional `key` —— *one-argument* function
 
 
-```python
+{% highlight python %}
 mess = list('Higher-Order Functions: nested functions'.split())
 print(sorted(mess, key = len))
-```
+{% endhighlight %}
 
     ['nested', 'functions', 'Functions:', 'Higher-Order']
 
 
 
-```python
+{% highlight python %}
 def reverse(word):    # one argument
     return word[::-1]
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 sorted(mess)
-```
+{% endhighlight %}
 
 
 
@@ -142,9 +142,9 @@ sorted(mess)
 
 
 
-```python
+{% highlight python %}
 sorted(mess, key = reverse)
-```
+{% endhighlight %}
 
 
 
@@ -158,10 +158,10 @@ sorted(mess, key = reverse)
 with generator expressions and list comprehensions
 
 
-```python
+{% highlight python %}
 list(map(factorial,range(7)))
 [factorial(x) for x in range(7)]
-```
+{% endhighlight %}
 
 
 
@@ -171,10 +171,10 @@ list(map(factorial,range(7)))
 
 
 
-```python
+{% highlight python %}
 list(map(factorial,filter(lambda x: x & 0x1, range(7))))
 [factorial(x) for x in range(7) if x % 2]
-```
+{% endhighlight %}
 
 
 
@@ -195,9 +195,9 @@ The body part of lambda functions should be pure expressions.
 Most used in the argument of higher-order functions
 
 
-```python
+{% highlight python %}
 sorted(mess, key = lambda x : x[::-1])
-```
+{% endhighlight %}
 
 
 
@@ -211,7 +211,7 @@ sorted(mess, key = lambda x : x[::-1])
 A randomPick class does one thing: picks items from a shuffled list
 
 
-```python
+{% highlight python %}
 import random
 
 class randomPick:
@@ -228,13 +228,13 @@ class randomPick:
 
     def __call__(self):            # 2
         return self.pick()
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 test = randomPick(range(7))
 test.pick()
-```
+{% endhighlight %}
 
 
 
@@ -244,9 +244,9 @@ test.pick()
 
 
 
-```python
+{% highlight python %}
 test()         # same as test.pick()
-```
+{% endhighlight %}
 
 
 
@@ -256,9 +256,9 @@ test()         # same as test.pick()
 
 
 
-```python
+{% highlight python %}
 callable(test) # 3
-```
+{% endhighlight %}
 
 
 
@@ -281,20 +281,20 @@ callable(test) # 3
 `set(function) - set(user-defined object)`
 
 
-```python
+{% highlight python %}
 print(dir(factorial))
-```
+{% endhighlight %}
 
     ['__annotations__', '__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__globals__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__kwdefaults__', '__le__', '__lt__', '__module__', '__name__', '__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
 
 
 
-```python
+{% highlight python %}
 class C: pass
 obj = C()
 def func(): pass
 print(sorted(set(dir(func)) - set(dir(obj))))
-```
+{% endhighlight %}
 
     ['__annotations__', '__call__', '__closure__', '__code__', '__defaults__', '__get__', '__globals__', '__kwdefaults__', '__name__', '__qualname__']
 
@@ -312,34 +312,34 @@ print(sorted(set(dir(func)) - set(dir(obj))))
 ## Functional Programming: `operator` and `functools` Package
 
 
-```python
+{% highlight python %}
 from functools import reduce
-```
+{% endhighlight %}
 
 `reduce` applies a function of **two arguments** cumulatively to the items of a sequence,
     from left to right, so as to reduce the sequence to a single value.
 ### `lambda`
 
 
-```python
+{% highlight python %}
 def fact(n):
     return reduce(lambda a, b: a * b, range(1, n+1))
-```
+{% endhighlight %}
 
 ### `mul`
 
 
-```python
+{% highlight python %}
 from operator import mul
 
 def fact(n):
     return reduce(mul, range(1, n+1))
-```
+{% endhighlight %}
 
 ### `itemgetter`: sorting a list of tuples by the value of one field
 
 
-```python
+{% highlight python %}
 metro_data = [
 ('Tokyo', 'JP', 36.933, (35.689722, 139.691667)),
 ('Delhi NCR', 'IN', 21.935, (28.613889, 77.208889)),
@@ -347,14 +347,14 @@ metro_data = [
 ('New York-Newark', 'US', 20.104, (40.808611, -74.020386)),
 ('Sao Paulo', 'BR', 19.649, (-23.547778, -46.635833)),
 ]
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 from operator import itemgetter
 for city in sorted(metro_data, key = itemgetter(1)):
     print(city)
-```
+{% endhighlight %}
 
     ('Sao Paulo', 'BR', 19.649, (-23.547778, -46.635833))
     ('Delhi NCR', 'IN', 21.935, (28.613889, 77.208889))
@@ -364,13 +364,13 @@ for city in sorted(metro_data, key = itemgetter(1)):
 
 
 
-```python
+{% highlight python %}
 # multiple index arguments will return tuples with extracted values
 
 selected_column = itemgetter(1, 0)
 for city in metro_data:
     print(selected_column(city))
-```
+{% endhighlight %}
 
     ('JP', 'Tokyo')
     ('IN', 'Delhi NCR')
@@ -382,7 +382,7 @@ for city in metro_data:
 ### `attrgetter`: creating functions to extract object attributes by name
 
 
-```python
+{% highlight python %}
 student_data = [
     ('Olivia','23',('90','Excellent')),
     ('Jedi','207',('40','Not good')),
@@ -392,22 +392,22 @@ student_data = [
 from collections import namedtuple
 Performance = namedtuple('Performance', 'score comment')
 Student = namedtuple('Student','name age grade')
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 student_obj = [Student(name, age, Performance(score,comment))
                    for name, age, (score,comment) in student_data]
-```
+{% endhighlight %}
 
 NOTE:
 1. **nested** tuple unpacking to extract (score, comment)
 2. build the `Performance(score,comment)` for the `grade` attribute of `Student`
 
 
-```python
+{% highlight python %}
 student_obj[0]
-```
+{% endhighlight %}
 
 
 
@@ -417,9 +417,9 @@ student_obj[0]
 
 
 
-```python
+{% highlight python %}
 student_obj[0].grade.comment
-```
+{% endhighlight %}
 
 
 
@@ -429,12 +429,12 @@ student_obj[0].grade.comment
 
 
 
-```python
+{% highlight python %}
 from operator import attrgetter
 name_grade = attrgetter('name','grade.comment')
 for one in sorted(student_obj, key = attrgetter('name')):
     print(name_grade(one))
-```
+{% endhighlight %}
 
     ('Jedi', 'Not good')
     ('Olivia', 'Excellent')
@@ -444,12 +444,12 @@ for one in sorted(student_obj, key = attrgetter('name')):
 ### `methodcaller`: calling a method by name of the object given as argument
 
 
-```python
+{% highlight python %}
 from operator import methodcaller
 s = 'hello'
 make_upper = methodcaller('upper')
 make_upper(s)
-```
+{% endhighlight %}
 
 
 
@@ -462,14 +462,14 @@ make_upper(s)
 like the `functools.partial` function does.
 
 
-```python
+{% highlight python %}
 replace_e = methodcaller('replace', 'e', '-')
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 replace_e(s)
-```
+{% endhighlight %}
 
 
 
@@ -481,9 +481,9 @@ replace_e(s)
 ### By the way, how to `print` all objects in a list elegently ?
 
 
-```python
+{% highlight python %}
 special_print = print(*list(s), sep = '-')
-```
+{% endhighlight %}
 
     h-e-l-l-o
 
@@ -491,13 +491,13 @@ special_print = print(*list(s), sep = '-')
 ### `functools.partial`: freezing arguments
 
 
-```python
+{% highlight python %}
 from operator import pow
 from functools import partial
 
 pow_7 = partial(pow, 7)
 pow_7(2)
-```
+{% endhighlight %}
 
 
 
@@ -507,9 +507,9 @@ pow_7(2)
 
 
 
-```python
+{% highlight python %}
 print([pow_7(x) for x in range(6)])
-```
+{% endhighlight %}
 
     [1, 7, 49, 343, 2401, 16807]
 
@@ -517,9 +517,9 @@ print([pow_7(x) for x in range(6)])
 ### What else in `operator` ?
 
 
-```python
+{% highlight python %}
 import operator
 print([name for name in dir(operator) if not name.startswith('_')])
-```
+{% endhighlight %}
 
     ['abs', 'add', 'and_', 'attrgetter', 'concat', 'contains', 'countOf', 'delitem', 'eq', 'floordiv', 'ge', 'getitem', 'gt', 'iadd', 'iand', 'iconcat', 'ifloordiv', 'ilshift', 'imatmul', 'imod', 'imul', 'index', 'indexOf', 'inv', 'invert', 'ior', 'ipow', 'irshift', 'is_', 'is_not', 'isub', 'itemgetter', 'itruediv', 'ixor', 'le', 'length_hint', 'lshift', 'lt', 'matmul', 'methodcaller', 'mod', 'mul', 'ne', 'neg', 'not_', 'or_', 'pos', 'pow', 'rshift', 'setitem', 'sub', 'truediv', 'truth', 'xor']

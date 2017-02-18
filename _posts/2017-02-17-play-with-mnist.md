@@ -1,7 +1,7 @@
 ---
 author: kimmy
 layout: post
-title:  "Play With MNIST"
+title:  "Play With MNIST and Softmax"
 date:   2017-02-17 23:34:21 +08:00
 categories: TensorFlow
 tags:
@@ -16,8 +16,15 @@ tags:
 {:toc}
 
 
+
+<br>
+<br>
 MNIST is a tutorial level for further moving on.
+
 And one day, we will find the way to build an elaborate world in Deep Learning.
+<br>
+<br>
+
 
 ## REVIEW
 ---
@@ -39,7 +46,7 @@ The MNIST data is split into three parts
 + Consequently, `mnist.train.labels` is a `[55000, 10]` array of floats.
 
 
-```python
+{% highlight python %}
 # windows is based on python3.5, where __future__ module is mandatory
 # from __future__ import absolute_import
 # from __future__ import division
@@ -95,7 +102,7 @@ if __name__ == "__main__":
                         help="Directory for storing input data")
     FLAGS, unparsed = parser.parse_known_args()
     tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
-```
+{% endhighlight %}
 
 ## Regression
 ---
@@ -126,11 +133,11 @@ if __name__ == "__main__":
 
 5.  run the training step 1000 times
 
-    ```
+    {% highlight python %}
     for _ in range(1000):
         batch_xs, batch_ys = mnist.train.next_batch(100)
         sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
-    ```
+    {% endhighlight %}
     + `mnist.train.next_batch(100)` get a **batch** of one hundred *random* data points.
     + In each `train_step`, we use batches to replace the `placeholders`
 

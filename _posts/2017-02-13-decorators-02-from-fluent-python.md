@@ -21,32 +21,32 @@ tags:
 ### Replace the decorated function with a different one
 
 
-```python
+{% highlight python %}
 def ordinary_function():
     print("I'm an ordinary function.")
 
 ordinary_function()
-```
+{% endhighlight %}
 
     I'm an ordinary function.
 
 
 
-```python
+{% highlight python %}
 def my_decorator(func):
     def wrapper():
         print("I'm the decorated one.")
     return wrapper
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 @my_decorator
 def ordinary_function():
     print("I'm an ordinary function.")
 
 ordinary_function()
-```
+{% endhighlight %}
 
     I'm the decorated one.
 
@@ -58,7 +58,7 @@ As known as import time
 ## Case Study, see previous [implementation](https://zengyu714.github.io/python/2017/02/12/little-about-design-patterns/)
 
 
-```python
+{% highlight python %}
 promos = []
 def promotion(promo_func):
     promos.append(promo_func)
@@ -90,7 +90,7 @@ def best_promo(order):
     """Select best discount available
     """
     return max(promo(order) for promo in promos)
-```
+{% endhighlight %}
 
 ### KEYNOTE
 ---
@@ -98,16 +98,16 @@ def best_promo(order):
 2. Any function decorated by `@promotion` will be added to `promos`.
 3. Comparing to
 
-    ```
+    {% highlight python %}
     promos = [globals()[name] for name in globals()
                   if name.endswith('_promo')
                   and name != 'best_promo']
-    ```
+    {% endhighlight %}
 
-    ```
+    {% highlight python %}
     promos = [func for name, func in
                 inspect.getmembers(promotions, inspect.isfunction)]
-    ```
+    {% endhighlight %}
   `@promotion`
   + doesn't need to use special names, e.g. `_promo` suffix.
   + is flexible, comment out the decorator if want to disable a promotion.
@@ -118,7 +118,7 @@ clocks every invocation of the decorated function and
 prints the elapsed time, the arguments passed, and the result of the call.
 
 
-```python
+{% highlight python %}
 import time
 def clock(func):
     # accept any number of positional arguments
@@ -133,10 +133,10 @@ def clock(func):
 
     # return the inner function to replace the decorated function
     return clocked
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 @clock
 def snooze(seconds):
     time.sleep(seconds)
@@ -144,15 +144,15 @@ def snooze(seconds):
 @clock
 def factorial(n):
     return 1 if n < 2 else n * factorial(n-1)
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 print('*' * 40, 'Calling snooze(.123)')
 snooze(.123)
 print('*' * 40, 'Calling factorial(6)')
 print('6! =', factorial(6))
-```
+{% endhighlight %}
 
     **************************************** Calling snooze(.123)
     [0.12311179s] snooze(0.123) -> None
@@ -169,9 +169,11 @@ print('6! =', factorial(6))
 ### How?
 
 
-```python
+{% highlight python %}
+
 factorial.__name__
-```
+
+{% endhighlight %}
 
 
 
@@ -186,7 +188,7 @@ factorial.__name__
 ## Advanced clock decorator
 
 
-```python
+{% highlight python %}
 import time
 import functools
 
@@ -207,7 +209,7 @@ def clock(func):
         print('[%0.8fs] %s(%s) -> %r ' % (elapsed, name, arg_str, result))
         return result
     return clocked
-```
+{% endhighlight %}
 
 ## `functools.lru_cache`
 named after Least Recently Used, with two optional arguments
@@ -216,7 +218,7 @@ named after Least Recently Used, with two optional arguments
 ### Avoid wasty recursion
 
 
-```python
+{% highlight python %}
 @clock
 def fibonacci(n):
     if n < 2:
@@ -224,7 +226,7 @@ def fibonacci(n):
     return fibonacci(n-1) + fibonacci(n-2)
 
 fibonacci(6)
-```
+{% endhighlight %}
 
     [0.00000000s] fibonacci(1) -> 1
     [0.00000000s] fibonacci(0) -> 0
@@ -261,7 +263,7 @@ fibonacci(6)
 
 
 
-```python
+{% highlight python %}
 import functools
 
 @functools.lru_cache()
@@ -272,7 +274,7 @@ def fibonacci(n):
     return fibonacci(n-1) + fibonacci(n-2)
 
 fibonacci(6)
-```
+{% endhighlight %}
 
     [0.00000000s] fibonacci(1) -> 1
     [0.00000000s] fibonacci(0) -> 0
@@ -298,7 +300,7 @@ fibonacci(6)
 ## Parameterized decorators
 
 
-```python
+{% highlight python %}
 bucket = set()
 # Now adding or removing is faster than list
 
@@ -333,16 +335,18 @@ def horrible_item():
 
 def common_item():
     print("———— common item ————")
-```
+{% endhighlight %}
 
     processing item(sure = True)->wrapper(<function lovely_item at 0x00000251119DA7B8>)
     processing item(sure = False)->wrapper(<function horrible_item at 0x0000025111AB3950>)
 
 
 
-```python
+{% highlight python %}
+
 bucket
-```
+
+{% endhighlight %}
 
 
 
@@ -352,9 +356,11 @@ bucket
 
 
 
-```python
+{% highlight python %}
+
 add_into_bucket()(common_item)
-```
+
+{% endhighlight %}
 
     processing item(sure = True)->wrapper(<function common_item at 0x0000025111AB3A60>)
 
@@ -367,9 +373,11 @@ add_into_bucket()(common_item)
 
 
 
-```python
+{% highlight python %}
+
 bucket
-```
+
+{% endhighlight %}
 
 
 
@@ -379,9 +387,11 @@ bucket
 
 
 
-```python
+{% highlight python %}
+
 add_into_bucket(sure = False)(lovely_item)
-```
+
+{% endhighlight %}
 
     processing item(sure = False)->wrapper(<function lovely_item at 0x00000251119DA7B8>)
 
@@ -394,9 +404,11 @@ add_into_bucket(sure = False)(lovely_item)
 
 
 
-```python
+{% highlight python %}
+
 bucket
-```
+
+{% endhighlight %}
 
 
 
@@ -408,7 +420,7 @@ bucket
 ## Parameterized clock decorator
 
 
-```python
+{% highlight python %}
 import time
 
 DEFAULT_FMT = '[{elapsed:0.8f}s] {name}({args}) -> {result}'
@@ -432,10 +444,10 @@ def clock(fmt=DEFAULT_FMT):
             # so it should return whatever that function returns
         return clocked
     return decorate
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 @clock()
 def snooze(seconds):
     time.sleep(seconds)
@@ -443,7 +455,7 @@ def snooze(seconds):
 # default format
 for i in range(3):
     snooze(.123)
-```
+{% endhighlight %}
 
     [0.12328577s] snooze(0.123) -> None
     [0.12370849s] snooze(0.123) -> None
@@ -451,14 +463,14 @@ for i in range(3):
 
 
 
-```python
+{% highlight python %}
 @clock('{name}: {elapsed}s')
 def snooze(seconds):
     time.sleep(seconds)
 
 for i in range(3):
     snooze(.123)
-```
+{% endhighlight %}
 
     snooze: 0.12315082550048828s
     snooze: 0.12341547012329102s
@@ -466,14 +478,14 @@ for i in range(3):
 
 
 
-```python
+{% highlight python %}
 @clock('{name}({args}) dt={elapsed:0.3f}s')
 def snooze(seconds):
     time.sleep(seconds)
 
 for i in range(3):
     snooze(.123)
-```
+{% endhighlight %}
 
     snooze(0.123) dt=0.123s
     snooze(0.123) dt=0.124s

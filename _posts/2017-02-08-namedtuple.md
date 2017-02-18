@@ -16,18 +16,18 @@ tags:
 ## Example: define named tuple about a student
 
 
-```python
+{% highlight python %}
 from collections import namedtuple
 Student = namedtuple('Student','name age grade')
 olivia = Student('olivia','20',('A+','Excellent'))
-```
+{% endhighlight %}
 
 ### Access the fields by name or position
 
 
-```python
+{% highlight python %}
 olivia[1]
-```
+{% endhighlight %}
 
 
 
@@ -37,9 +37,9 @@ olivia[1]
 
 
 
-```python
+{% highlight python %}
 olivia.age
-```
+{% endhighlight %}
 
 
 
@@ -51,9 +51,9 @@ olivia.age
 ### `_fields` class attribute
 
 
-```python
+{% highlight python %}
 Student._fields
-```
+{% endhighlight %}
 
 
 
@@ -66,7 +66,7 @@ Student._fields
 instantiate a named tuple from an iterable
 
 
-```python
+{% highlight python %}
 Performance = namedtuple('Performance','res comment')
 sophie_res = ('sophie',21,Performance('A','Grade'))
 sophie = Student._make(sophie_res)
@@ -75,7 +75,7 @@ print sophie
 jedi_res = ('jedi',90,('B','Good'))
 jedi = Student._make(jedi_res)
 print jedi
-```
+{% endhighlight %}
 
     Student(name='sophie', age=21, grade=Performance(res='A', comment='Grade'))
     Student(name='jedi', age=90, grade=('B', 'Good'))
@@ -85,9 +85,9 @@ print jedi
 can be used to produce a nice display of city data.
 
 
-```python
+{% highlight python %}
 sophie._asdict()
-```
+{% endhighlight %}
 
 
 
@@ -99,10 +99,10 @@ sophie._asdict()
 
 
 
-```python
+{% highlight python %}
 for k, v in sophie._asdict().items():
     print k + ':', v
-```
+{% endhighlight %}
 
     name: sophie
     age: 21
@@ -110,9 +110,9 @@ for k, v in sophie._asdict().items():
 
 
 
-```python
+{% highlight python %}
 type(sophie._asdict()['grade'])
-```
+{% endhighlight %}
 
 
 
@@ -122,10 +122,10 @@ type(sophie._asdict()['grade'])
 
 
 
-```python
+{% highlight python %}
 for k, v in jedi._asdict().items():
     print k + ':', v
-```
+{% endhighlight %}
 
     name: jedi
     age: 90
@@ -133,9 +133,9 @@ for k, v in jedi._asdict().items():
 
 
 
-```python
+{% highlight python %}
 type(jedi._asdict()['grade'])
-```
+{% endhighlight %}
 
 
 
@@ -150,11 +150,11 @@ type(jedi._asdict()['grade'])
 2. build classes of objects that are just bundles of attributes with no custom methods
 3. the use of `typename`
 
- ```python
+ {% highlight python %}
 Point=namedtuple('whatsmypurpose',['x','y']) # (verbose=True) tells the answer
 p_temp = Point(3,4)
 print p_temp
-```
+{% endhighlight %}
 
     whatsmypurpose(x=3, y=4)
     <class '__main__.whatsmypurpose'>

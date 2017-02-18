@@ -22,7 +22,7 @@ tags:
 ### Didactic Example
 
 
-```python
+{% highlight python %}
 """
 A two-dimensional vector class
     >>> v1 = Vector2d(3, 4)
@@ -178,7 +178,7 @@ class Vector2d:
         typecode = chr(octets[0])
         memv = memoryview(octets[1:]).cast(typecode)
         return cls(*memv)
-```
+{% endhighlight %}
 
 ### `__bytes__`
 
@@ -186,11 +186,11 @@ class Vector2d:
 + concatenate `bytes` converted from an `array` built by iterating over the instance
 
 
-```python
+{% highlight python %}
 def __bytes__(self):
     return (bytes([ord(self.typecode)]) +
     bytes(array(self.typecode, self)))
-```
+{% endhighlight %}
 
 ### `@classmethod`
 + defines a method that operates on the **class** and not on instances.
@@ -198,30 +198,30 @@ def __bytes__(self):
 + `cls(*memv)` actually builds a new instance.
 
 
-```python
+{% highlight python %}
 @classmethod
 def frombytes(cls, octets):
     # No self argument, instead is the class itself
     typecode = chr(octets[0])
     memv = memoryview(octets[1:]).cast(typecode)
     return cls(*memv)
-```
+{% endhighlight %}
 
 ### `__format__`
 
 
-```python
+{% highlight python %}
 def __format__(self, fmt_spec=''):
     components = (format(c, fmt_spec) for c in self)
     return "({},{})".format(*components)
-```
+{% endhighlight %}
 
 ### `__hash__`
 
 #### 1. immutable
 
 
-```python
+{% highlight python %}
 class Vector2d:
     typecode = 'd'
 
@@ -239,7 +239,7 @@ class Vector2d:
 
     def __iter(self):
         return (i for i in (self.x, self.y))
-```
+{% endhighlight %}
 
 #### 2. `__eq__`
 
@@ -248,10 +248,10 @@ class Vector2d:
 suggests using the bitwise XOR operator `^` to mix the hashes of the components.
 
 
-```python
+{% highlight python %}
 def __hash__(self):
     return hash(self.x)^hash(self.y)
-```
+{% endhighlight %}
 
 ### KEYNOTE:
 ---
@@ -265,10 +265,10 @@ Python stores the name in the instance `__dict__` prefixed with a leading unders
 `__x` becomes `_Vector2d__x`
 
 
-```python
+{% highlight python %}
 v1 = Vector2d(3, 4)
 v1.__dict__
-```
+{% endhighlight %}
 
 
 
@@ -278,9 +278,9 @@ v1.__dict__
 
 
 
-```python
+{% highlight python %}
 v1._Vector2d__x
-```
+{% endhighlight %}
 
 
 
@@ -293,10 +293,10 @@ WARNING:
 Don't assign a value to a private component.
 
 
-```python
+{% highlight python %}
 v1._Vector2d__x = 9
 v1
-```
+{% endhighlight %}
 
 
 
@@ -312,7 +312,7 @@ Using a `tuple` instead of a `dict` could save memory if don't keep hashable,
 in the condition of dealing with millions of instances with few attributes.
 
 
-```python
+{% highlight python %}
 class vector2d:
     __slots__ = ('__x', '__y')
     # write down all the instance attributes in the class
@@ -320,7 +320,7 @@ class vector2d:
     typecode = 'd'
 
     # ...
-```
+{% endhighlight %}
 
 NOTE:
 1. `Numpy` is suitable to process numeric data.
@@ -331,21 +331,21 @@ NOTE:
 ### Solution 1: Customizing an instance
 
 
-```python
+{% highlight python %}
 v1 = Vector2d(3.1,4.15)
 v1_double_byte = bytes(v1)
 print("v1 :%s\t len: %s" % (v1_double_byte, len(v1_double_byte)))
-```
+{% endhighlight %}
 
     v1 :b'd\xcd\xcc\xcc\xcc\xcc\xcc\x08@\x9a\x99\x99\x99\x99\x99\x10@'	 len: 17
 
 
 
-```python
+{% highlight python %}
 v1.typecode = 'f'
 v1_float_byte = bytes(v1)
 print("v1 :%s\t len: %s" % (v1_float_byte, len(v1_float_byte)))
-```
+{% endhighlight %}
 
     v1 :b'fffF@\xcd\xcc\x84@'	 len: 9
 
@@ -353,9 +353,9 @@ print("v1 :%s\t len: %s" % (v1_float_byte, len(v1_float_byte)))
 NOTE: the default typecode is `d`, unchanged
 
 
-```python
+{% highlight python %}
 Vector2d.typecode
-```
+{% endhighlight %}
 
 
 
@@ -367,15 +367,15 @@ Vector2d.typecode
 ### Solution 2: Set on the subclass directly
 
 
-```python
+{% highlight python %}
 class floatVector2d(Vector2d):
     typecode = 'f'
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 fv = floatVector2d(3.14,1.5)
 print("%r\tlen: %s" % (fv, len(bytes(fv))))
-```
+{% endhighlight %}
 
     floatVector2d(3.14, 1.5)	len: 9

@@ -21,7 +21,7 @@ tags:
 ### Function-Oriented Strategy
 
 
-```python
+{% highlight python %}
 from collections import namedtuple
 
 Customer = namedtuple('Customer','name fidelity')
@@ -35,10 +35,10 @@ class LineItem:
 
     def total(self):
         return self.price * self.quantity
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 class Order:
     # the Context
 
@@ -63,10 +63,10 @@ class Order:
         fmt = '<Order total: {:.2f} due: {:.2f}>'
         return fmt.format(self.total(), self.due())
 
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 def fidelity_promo(order):
     """5% discount for customers with 1000 or more fidelity points"""
     return order.total()* .05 if order.customer.fidelity >= 1000 else 0
@@ -86,10 +86,10 @@ def large_order_promo(order):
     if len(distinct_items) >= 10:
         return order.total()* .07
     return 0
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 joe = Customer('John Doe', 0)
 ann = Customer('Ann Smith', 1100)
 cart = [
@@ -97,12 +97,12 @@ cart = [
     LineItem('apple', 10, 1.5),
     LineItem('watermellon', 5, 5.0)
 ]
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 Order(joe, cart, fidelity_promo)
-```
+{% endhighlight %}
 
 
 
@@ -112,9 +112,9 @@ Order(joe, cart, fidelity_promo)
 
 
 
-```python
+{% highlight python %}
 Order(ann, cart, fidelity_promo)
-```
+{% endhighlight %}
 
 
 
@@ -124,11 +124,11 @@ Order(ann, cart, fidelity_promo)
 
 
 
-```python
+{% highlight python %}
 banana_cart = [LineItem('banana', 30, .5),
                LineItem('apple', 10, 1.5)]
 Order(joe, banana_cart, bulk_item_promo)
-```
+{% endhighlight %}
 
 
 
@@ -138,11 +138,11 @@ Order(joe, banana_cart, bulk_item_promo)
 
 
 
-```python
+{% highlight python %}
 long_order = [LineItem(str(item_code), 1, 1.0)
                     for item_code in range(10)]
 Order(joe, long_order, large_order_promo)
-```
+{% endhighlight %}
 
 
 
@@ -156,7 +156,7 @@ Order(joe, long_order, large_order_promo)
 best_promo finds the maximum discount iterating over a list of functions
 
 
-```python
+{% highlight python %}
 # list of the strategies implemented as functions
 promos = [fidelity_promo, bulk_item_promo, large_order_promo]
 
@@ -164,12 +164,12 @@ def best_promo(order):
     """Select best discount available
     """
     return max(promo(order) for promo in promos)
-```
+{% endhighlight %}
 
 
-```python
+{% highlight python %}
 Order(joe, long_order, best_promo)
-```
+{% endhighlight %}
 
 
 
@@ -179,9 +179,9 @@ Order(joe, long_order, best_promo)
 
 
 
-```python
+{% highlight python %}
 Order(joe, banana_cart, best_promo)
-```
+{% endhighlight %}
 
 
 
@@ -191,9 +191,9 @@ Order(joe, banana_cart, best_promo)
 
 
 
-```python
+{% highlight python %}
 Order(ann, cart, best_promo)
-```
+{% endhighlight %}
 
 
 
@@ -205,36 +205,36 @@ Order(ann, cart, best_promo)
 ### `globals()` to help find other available `*_promo` functions automatically
 
 
-```python
+{% highlight python %}
 promos = [globals()[name] for name in globals()
                         if name.endswith('_promo')
                         and name != 'best_promo']
-```
+{% endhighlight %}
 
 No changes inside `best_promo`.
 
 
-```python
+{% highlight python %}
 def best_promo(order):
     """Select best discount available
     """
     return max(promo(order) for promo in promos)
-```
+{% endhighlight %}
 
 ### Introspection of a separate module `promotion`
 
 
-```python
+{% highlight python %}
 promos = [func for name, func in
             inspect.getmembers(promotions, inspect.isfunction)]
-```
+{% endhighlight %}
 
 ## Command
 
 Each instance of MacroCommand has an internal list of commands
 
 
-```python
+{% highlight python %}
 class MacroCommand:
     """A command that executes a list of commands"""
     def __init__(self, commands):
@@ -242,7 +242,7 @@ class MacroCommand:
     def __call__(self):
         for command in self.commands:  # 2
             command()
-```
+{% endhighlight %}
 
 ### KEYNOTE
 ---
