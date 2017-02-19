@@ -15,7 +15,7 @@ tags:
 
 
 ## L [ i : j ]
-returns a new list, containing the objects between i and j, exactly is [i,j)
+returns a new list, containing the objects between i and j, exactly is [ i, j )
 
 {% highlight python %}
 n = len(L)
@@ -34,5 +34,5 @@ seq = L[1::2] # get every other item, starting with the second
 
 ## KEYNOTE
 ---
-To evaluate the expression seq[start:stop:step],
+To evaluate the expression seq[start:stop:step],    
 Python calls `seq.__getitem__(slice(start, stop, step))`

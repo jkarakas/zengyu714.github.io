@@ -1,7 +1,7 @@
 ---
 author: kimmy
 layout: post
-title:  "Play With MNIST and Softmax"
+title:  "Play with MNIST and Softmax"
 date:   2017-02-17 23:34:21 +08:00
 categories: TensorFlow
 tags:
@@ -35,13 +35,13 @@ The MNIST data is split into three parts
 + `mnist.validation`
 
 ### x
-+ Every image is `28 x 28`, we can flatten the 2-d array into `728 x 1`.
++ Every image is `28 x 28`, we can flatten the 2-d array into `728 x 1`.<br>
   Make sure to be consistent between images.
-+ `mnist.train.images` is a **tensor**(an n-dimensional array) with a shape of `[55000, 784]`.
++ `mnist.train.images` is a **tensor**(an n-dimensional array) with a shape of `[55000, 784]`.<br>
   Each entry in the tensor is a pixel **regularized** between 0 and 1.
 
 ### y
-+ Corresponding label is a number between 0 and 9.
++ Corresponding label is a number between 0 and 9.<br>
   Adopting `one-hot` encoding, e.g., 2 would be [0,0,1,0,0,0,0,0,0,0].
 + Consequently, `mnist.train.labels` is a `[55000, 10]` array of floats.
 
@@ -106,25 +106,25 @@ if __name__ == "__main__":
 
 ## Regression
 ---
-1.  `x = tf.placeholder(tf.float32, [None, 784])`
+1.  `x = tf.placeholder(tf.float32, [None, 784])`<br>
    `None` means a dimension can be any length, that is the input can be any number of MNIST images.
-2.  `W = tf.Variable(tf.zeros([784, 10]))`
-   `b = tf.Variable(tf.zeros([10]))`
-   Here initialize both `W` and `b` as tensors full of zeros.
+2.  `W = tf.Variable(tf.zeros([784, 10]))`<br>
+   `b = tf.Variable(tf.zeros([10]))`<br>
+   Here initialize both `W` and `b` as tensors full of zeros.<br>
    `Variable` is a modifiable tensor, or is the representation of network parameters.
-3.  `y = tf.nn.softmax(tf.matmul(x, W) + b)`
+3.  `y = tf.nn.softmax(tf.matmul(x, W) + b)`<br>
    Notice mutiply `x` by `W`, think about matrix multiplication rules.
 
 
 ## Training
 ---
-1.  $-\sum y' log(y)\quad$
-   could be implemented by `-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1])`
-   `tf.reduce_sum` adds the elements in the **second** dimension of y, due to `reduction_indices=[1]`
+1.  $-\sum y' log(y)\quad$<br>
+   could be implemented by `-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1])`<br>
+   `tf.reduce_sum` adds the elements in the **second** dimension of y, due to `reduction_indices=[1]`.<br>
    However, `tf.nn.softmax_cross_entropy_with_logits` are more numerically stable function.
 
 2.  `train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)`
-   using the gradient descent algorithm with a learning rate of 0.5.
+   using the gradient descent algorithm with a learning rate of 0.5.<br>
    See more [optimization algorithms](https://www.tensorflow.org/api_guides/python/train#optimizers).
 
 3.  `sess = tf.InteractiveSession()` launches the model in an `InteractiveSession`.
@@ -138,15 +138,16 @@ if __name__ == "__main__":
         batch_xs, batch_ys = mnist.train.next_batch(100)
         sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
     {% endhighlight %}
-    + `mnist.train.next_batch(100)` get a **batch** of one hundred *random* data points.
-    + In each `train_step`, we use batches to replace the `placeholders`
+
++ `mnist.train.next_batch(100)` get a **batch** of one hundred *random* data points.
++ In each `train_step`, we use batches to replace the `placeholders`
 
 
 ## Evaluating
 ---
-1.  `tf.argmax` gives the **index** of the highest entry in a tensor along a specific axis.
+1.  `tf.argmax` gives the **index** of the highest entry in a tensor along a specific axis.<br>
    `tf.equal` checkes whether the prediction matches the truth, outputs a list of **booleans**.
-2.  `tf.cast` to floating point numbers, e.g.,
+2.  `tf.cast` to floating point numbers, e.g.,<br>
     [True, True, True, False] $\to$ [1, 1, 1, 0] $\to$ 0.75
 3.  `sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels})`
    caculates the accuracy on test data.

@@ -307,8 +307,8 @@ v1
 
 ## `__slots__` Class Attribute
 
-By default, Python stores instance attributes in a per-instance dict named `__dict__`.
-Using a `tuple` instead of a `dict` could save memory if don't keep hashable,
+By default, Python stores instance attributes in a per-instance dict named `__dict__`.<br>
+Using a `tuple` instead of a `dict` could save memory if don't keep hashable,<br>
 in the condition of dealing with millions of instances with few attributes.
 
 

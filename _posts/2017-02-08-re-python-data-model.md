@@ -90,9 +90,9 @@ def spades_high(card):
 
 #### KEYNOTE
 ---
-1. Assign `str` numerical values to make sort feasible
-2. `a_list.index(a)` is similar to `index = find(A == a)` in Matlab
-3.  Structure in FrenchDeck is basically a 2-D array and 'rank' represents 'rows' while 'suit' represents 'columns', so index here is `r * len(c) + c`
+1. Assign `str` numerical values to make sort feasible.<br>
+2. `a_list.index(a)` is similar to `index = find(A == a)` in Matlab.<br>
+3.  Structure in FrenchDeck is basically a 2-D array and 'rank' represents 'rows' while 'suit' represents 'columns', so index here is `r * len(c) + c`.
 
 ## Emulating **numeric** Types
 
@@ -133,4 +133,5 @@ Difference between `__str__` and `__repr__` in Python, see [more](http://stackov
 3. `__repr__` overrides `__str__`
 
 ## Summary
-Implementing special methods like `__repr__`, `__getitem__`, could be more **generalizable** among available packages other than reinventing wheels.
+Implementing special methods like `__repr__`, `__getitem__`,<br>
+could be more **generalizable** among available packages other than reinventing wheels.

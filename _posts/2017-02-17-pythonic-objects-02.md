@@ -29,7 +29,7 @@ def __repr__(self):
 
 1. `generates, e.g., `array('d', [0.0, 1.0, 2.0, 3.0, 4.0, ...])`
 2. remove prefix `array('d'` and trailing `)`
-3. calling repr() on an object should never raise an exception
+3. calling `repr()` on an object should never raise an exception
 
 ## `__len__` and `__getitem__`: constitute the **sequence protocol**
 
@@ -163,10 +163,12 @@ def __getitem__(self, index):
    build another `Vector` instance from a slice of the `_components` array.
 2. If the `index` is an `int` or some other kind of integer,
    return the specific item from `_components`.
-3. SKILLS to LEARN
-   + `isinstance`: the test against `numbers.Integral`—an Abstract Base Class
-   + {% highlight python %}msg = '{cls.__name__} indices must be integers'
-     raise TypeError(msg.format(cls=cls)){% endhighlight %}
+
+SKILLS to LEARN
++ `isinstance`: the test against `numbers.Integral`—an Abstract Base Class
++ `raise` error message<br>
+ {% highlight python %}msg = '{cls.__name__} indices must be integers'
+   raise TypeError(msg.format(cls=cls)){% endhighlight %}
 
 
 {% highlight python %}
@@ -275,11 +277,11 @@ def __setattr__(self, name, value):
 1. The less-than signs could be **successive** in an inequation.
 2. `{.__name__!r}`, NO EXTRA WHITESPACE.
 3. If there is a nonblank error message, `raise AttributeError(msg)`.
-4.  `super()` function provides a way to access methods of superclasses dynamically.
+4.  `super()` function provides a way to access methods of superclasses dynamically.<br>
    Then call `__setattr__` on superclass for standard behavior.
 
-> Very often when you implement `__getattr__`, you need to code `__setattr__` as well,
-to avoid inconsistent behavior in your objects
+> Very often when you implement `__getattr__`, <br>
+you need to code `__setattr__` as well, to avoid inconsistent behavior in your objects
 
 ## `__hash__`: apply the `^` operator to the hashes of every component
 
@@ -444,5 +446,5 @@ class Vector:
 {% endhighlight %}
 
 ___
-It's a good practice to provide the third argument, `reduce(function, iterable, initializer)`.
+It's a good practice to provide the third argument, `reduce(function, iterable, initializer)`.<br>
 `initializer` is the first argument in the reducing loop if the sequence is **empty**.

@@ -1,7 +1,7 @@
 ---
 author: kimmy
 layout: post
-title:  "Getting Started With TensorFlow"
+title:  "Getting Started with TensorFlow"
 date:   2017-02-18 22:26:21 +08:00
 categories: TensorFlow
 tags:
@@ -9,6 +9,7 @@ tags:
 - Notes
 - TensorFlow
 - CNN
+- tf.contrib.learn
 ---
 
 * content
@@ -20,7 +21,7 @@ tags:
 
 1. **TensorFlow Core** is the lowest level API, while provides most flexible control.
 2. A few of high-level TensorFlow APIs, whose method names contain `contrib`, are still in development and unstable.
-3. `tensor` consists of a set of primitive values shaped into an array of any number of dimensions.
+3. `tensor` consists of a set of primitive values shaped into an array of any number of dimensions.<br>
    Tensor's **rank** is its number of dimensions.
 
 
@@ -265,7 +266,7 @@ estimator.fit(x=dataSet.data, y=dataSet.target, steps=1000)
 {% endhighlight %}
 
 ### `evaluate`
-how well our model did.
+how well our model did.<br>
 In a real example, we would want to use a separate **validation** and **testing** data set to avoid overfitting.
 
 

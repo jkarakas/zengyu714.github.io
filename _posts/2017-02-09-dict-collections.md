@@ -165,8 +165,8 @@ print d.get(3)                       # NOTE 4
     `str(key) in self` would **recursively** call `__contains__`. We avoid this by explicitly
     looking up the `key in self.keys()`.
 
-4. [CAREFULLY] : )
-    Must using `d.get(key)` notation, otherwise d[3] directly runs into `__missing__`, and `try...except...` didn't be triggered
+4. [CAREFULLY] : )<br>
+    Must using `d.get(key)` notation, otherwise d[3] directly runs into `__missing__`, and `try...except...` didn't be triggered.
 
 # Collections
 
@@ -220,8 +220,8 @@ is very helpful in data science, see [more](https://docs.python.org/3/library/co
 
 ## Subclassing `UserDict`
 
-StrKeyDict derived from `UserDict` always converts non-string keys to str: on insertion, update, and lookup.
-Compared to be inherited from `Dict`.
+StrKeyDict derived from `UserDict` always converts non-string keys to str: on insertion, update, and lookup.<br>
+Compared to which is inherited from `Dict`.
 
 
 {% highlight python %}
@@ -243,16 +243,18 @@ class StrKeyDict(collections.UserDict):
 
 ###  KEYNOTE
 ---
-1. check on `self.data` instead of invoking `self.keys()` as we did in StrKeyDict0
-2. `__setitem__` converts any key to a str. This method is easier to overwrite when
-    we can delegate to the self.data attribute
+1. check on `self.data` instead of invoking `self.keys()` as we did in StrKeyDict0<br>
+2. `__setitem__` converts any key to a str.
+   This method is easier to overwrite when we can delegate to the self.data attribute
 
 # Hashable
-> An object is hashable if it has a hash value which never changes during its lifetime (it
-needs a `__hash__()` method), and can be compared to other objects (it needs an
-`__eq__()` method).
-Hashable objects which compare equal must have the same hash
-value.
++ `__hash__()` method<br>
+An object is hashable if it has a hash value which never changes during its lifetime.
++ `__eq__()` method<br>
+It can be compared to other objects.
+
+Hashable objects which compare equal must have the same hash value.
+
 
 
 {% highlight python %}

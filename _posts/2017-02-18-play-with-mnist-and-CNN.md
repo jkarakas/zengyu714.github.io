@@ -1,7 +1,7 @@
 ---
 author: kimmy
 layout: post
-title:  "Play With MNIST and CNN"
+title:  "Play with MNIST and CNN"
 date:   2017-02-18 22:22:24 +08:00
 categories: TensorFlow
 tags:
@@ -111,7 +111,7 @@ def bias_variable(shape):
 {% endhighlight %}
 
 + Initialize weights with a small amount of noise for **symmetry breaking**, and to **prevent 0 gradients**.
-+ ReLU neurons suggests a **slightly positive** initial bias to avoid dead neurons.
++ ReLU neurons suggest a **slightly positive** initial bias to avoid dead neurons.
 + Create two handy functions in case do it repeatedly.
 
 ### Convolution and Pooling

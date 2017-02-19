@@ -55,6 +55,6 @@ print(' bytes:', re_words_bytes.findall(text_bytes))
 ### KEYNOTE
 ---
 1. This string is joined to the previous one at compile time.
-2. you can use regular expressions
-    on `str` and `bytes`, but in the second case bytes outside of the **ASCII** range are treated
-    as **nondigits** and **nonword** characters
+2. you can use regular expressions on `str` and `bytes`, <br>
+   but in the second case bytes outside of the **ASCII** range are treated
+    as **nondigits** and **nonword** characters.

@@ -185,13 +185,12 @@ list(map(factorial,filter(lambda x: x & 0x1, range(7))))
 
 ### Use `sum` rather than `reduce`
 
-Apply some operation with previous results in a sequence, until reducing a sequence of values to a single
-value.
-Others reducing functions like `any(iterabe)` , `any(iterable)`
+Apply some operation with previous results in a sequence, until reducing a sequence of values to a single value.<br>
+Others reducing functions like `all(iterabe)` , `any(iterable)`
 
 ## Anonymous Functions
 
-The body part of lambda functions should be pure expressions.
+The body part of lambda functions should be pure expressions.<br>
 Most used in the argument of higher-order functions
 
 
@@ -207,7 +206,7 @@ sorted(mess, key = lambda x : x[::-1])
 
 
 ## User-Defined Callable Types
-> Following example from Fluent Python chapter 5
+> Following example from Fluent Python chapter 5<br>
 A randomPick class does one thing: picks items from a shuffled list
 
 
@@ -271,7 +270,7 @@ callable(test) # 3
 ---
 1. `__init__` accepts any iterable; building a local copy prevents unexpected side
     effects on any list passed as an argument
-2. — `randomPick()` is an alias of `randomPick.pick()`.
+2. — `randomPick()` is an alias of `randomPick.pick()`.<br>
   — Implementing `__call__` is an easy way to create function-like objects that have
     some **internal state** that must be kept across invocations.
 
@@ -301,11 +300,11 @@ print(sorted(set(dir(func)) - set(dir(obj))))
 
 ### KETNOTE
 ---
-1. `dir()`
-    Without arguments, return the list of names in the **current local scope**.
+1. `dir()`<br>
+    Without arguments, return the list of names in the **current local scope**.<br>
     With an argument, attempt to return a list of valid attributes for that object.
-2. `pass` can be used when a statement is **required syntactically** but the program requires no action.
-    Also can be used as a place-holder to help think at a more abstract level.
+2. `pass` can be used when a statement is **required syntactically** but the program requires no action.<br>
+    Also can be used as a place-holder to help think at a more abstract level.<br>
     Here is creating minimal classes/functions.
 3. Making clever use of **set difference**.
 
@@ -316,7 +315,7 @@ print(sorted(set(dir(func)) - set(dir(obj))))
 from functools import reduce
 {% endhighlight %}
 
-`reduce` applies a function of **two arguments** cumulatively to the items of a sequence,
+`reduce` applies a function of **two arguments** cumulatively to the items of a sequence,<br>
     from left to right, so as to reduce the sequence to a single value.
 ### `lambda`
 
@@ -478,7 +477,7 @@ replace_e(s)
 
 
 
-### By the way, how to `print` all objects in a list elegently ?
+### By the way, how to `print` all objects in a **list** elegently ?
 
 
 {% highlight python %}

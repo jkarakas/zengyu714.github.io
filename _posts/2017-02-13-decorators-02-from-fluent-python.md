@@ -114,7 +114,7 @@ def best_promo(order):
 
 ## Try a Simple Decorator
 
-clocks every invocation of the decorated function and
+clocks every invocation of the decorated function and<br>
 prints the elapsed time, the arguments passed, and the result of the call.
 
 

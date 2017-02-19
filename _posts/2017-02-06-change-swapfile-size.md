@@ -13,7 +13,7 @@ tags:
 {:toc}
 
 
-**Problem**
+## Problem
 ---------------------------------------------
 RASPBERRY PI 3 MODEL B has 1GB RAM, and error occurs when compiling YCM
 `sudo python ./install.py`.
@@ -30,7 +30,7 @@ CMakeFiles/Makefile2:209: recipe for target 'ycm/CMakeFiles/ycm_support_libs.dir
 {% endhighlight %}
 
 
-**Solution 1**
+## Solution 1
 ---------------------------------------------
  Add more swap memory
 
@@ -40,9 +40,9 @@ sudo swapon -s  # Display swap usage summary by device
 {% endhighlight %}
 
 
->Raspian uses a script dphys-swapfile to manage swap.
+Raspian uses a configuration script located at `/etc/dphys-swapfile` to manage swap.<br>
 The standard image includes this turned on by default.
-The configuration files is located at **/etc/dphys-swapfile**
+
 
 {% highlight bash %}
 sudo vim /etc/dphys-swapfile
@@ -59,9 +59,9 @@ sudo /etc/init.d/dphys-swapfile start
 free -m # verify the memory condition
 {% endhighlight %}
 
-**Solution 2**
+## Solution 2
 ---------------------------------------------
- Setting the YCM_CORES environment variable to 1
+ Setting the `YCM_CORES` environment variable to 1
 {% highlight bash %}
 YCM_CORES=1 ./install.py --clang-completer
 {% endhighlight %}
