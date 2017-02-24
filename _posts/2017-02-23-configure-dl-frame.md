@@ -1,8 +1,8 @@
 ---
 author: kimmy
 layout: post
-title:  "How Do I ENJOY My Whole 30 Hours"
-date:   2017-02-22 21:37:00 +08:00
+title:  "How I ENJOY My Whole 30 Hours"
+date:   2017-02-23 21:37:00 +08:00
 categories: Linux
 tags:
 - Notes
