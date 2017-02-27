@@ -122,7 +122,7 @@ class Vector:
 
 #### KEYNOTE
 ---
-1. `hypot(x,y)` returns sqrt(x^2 + y^2)
+1. `hypot(x,y)` returns $$\sqrt{x^2 + y^2}$$
 2. `return bool(self.x or self.y)` better than `return bool(abs(self))`
 
 ## About **str** and **repr**

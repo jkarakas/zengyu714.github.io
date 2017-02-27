@@ -118,7 +118,7 @@ if __name__ == "__main__":
 
 ## Training
 ---
-1.  $-\sum y' log(y)\quad$<br>
+1.  $$-\sum y' log(y)\quad$$<br>
    could be implemented by `-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1])`<br>
    `tf.reduce_sum` adds the elements in the **second** dimension of y, due to `reduction_indices=[1]`.<br>
    However, `tf.nn.softmax_cross_entropy_with_logits` are more numerically stable function.
@@ -148,6 +148,6 @@ if __name__ == "__main__":
 1.  `tf.argmax` gives the **index** of the highest entry in a tensor along a specific axis.<br>
    `tf.equal` checkes whether the prediction matches the truth, outputs a list of **booleans**.
 2.  `tf.cast` to floating point numbers, e.g.,<br>
-    [True, True, True, False] $\to$ [1, 1, 1, 0] $\to$ 0.75
+    [True, True, True, False] $$\to$$ [1, 1, 1, 0] $$\to$$ 0.75
 3.  `sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels})`
    caculates the accuracy on test data.

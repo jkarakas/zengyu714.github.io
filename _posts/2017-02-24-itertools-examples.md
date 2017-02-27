@@ -1,7 +1,7 @@
 ---
 author: kimmy
 layout: post
-title:  tertools and Arithmetic Progression Generator"
+title:  "Itertools and Arithmetic Progression Generator"
 date:   2017-02-24 21:22:31 +08:00
 categories: Python
 tags:

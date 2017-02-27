@@ -22,7 +22,8 @@ highlighter: pygments
 
 # Build settings
 markdown: kramdown
-
+kramdown:
+  input:  GFM
 
 FB:
   comments :
