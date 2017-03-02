@@ -3,9 +3,9 @@ author: kimmy
 layout: post
 title:  "Homemade MNIST Classifier"
 date:   2017-02-27 16:36:55 +08:00
-categories: Deep Learning
+categories: DeepLearning
 tags:
-- Deep Learning
+- DeepLearning
 - Notes
 - Backpropagation
 
