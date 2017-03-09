@@ -15,8 +15,6 @@ tags:
 {:toc}
 
 
-
-
 ## Implementing the Iterator Protocol
 
 Python’s iterator protocol requires `__iter__()` to return a special iterator object that<br>

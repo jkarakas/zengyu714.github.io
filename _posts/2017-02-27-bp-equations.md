@@ -5,7 +5,7 @@ title:  "Backpropagation Equations"
 date:   2017-02-27 16:14:58 +08:00
 categories: Deep Learning
 tags:
-- Deep Learning
+- DeepLearning
 - Notes
 - Backpropagation
 
