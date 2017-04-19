@@ -36,11 +36,14 @@ y_oh = np.zeros((N * K, K), dtype=np.uint8)
 {% endhighlight%}
 
 ### Archimedean Spiral
-$$\rho = a + b\theta$$
-or<br>
-$$x = (\alpha + \beta \theta)\ cos(\theta)$$
-$$y = (\alpha + \beta \theta)\ sin(\theta)$$
 
+$$\rho = a + b\theta$$
+
+or<br>
+
+$$x = (\alpha + \beta \theta)\ cos(\theta)$$
+
+$$y = (\alpha + \beta \theta)\ sin(\theta)$$
 
 
 {% highlight python %}

@@ -30,6 +30,7 @@ permalink: /books/
 + [追忆似水年华](https://book.douban.com/subject/1983479/)
 + [爱与数学](https://book.douban.com/subject/26740091/)
 + [出埃及记](https://book.douban.com/subject/3228779/)
++ [秦腔](https://book.douban.com/subject/1281653/)
 
 ### List
 + 《重构》
