@@ -6,6 +6,7 @@ date:   2017-04-19 23:49:23 +08:00
 categories: Python
 tags:
 - Python
+- Notes
 - __init__()
 - lazyproperty
 ---
