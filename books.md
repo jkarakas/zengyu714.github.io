@@ -24,7 +24,8 @@ permalink: /books/
 + [罗曼蒂克消亡史](https://book.douban.com/subject/26931507/)
 + [一句话顶一万句](https://book.douban.com/subject/3633461/)
 + [老生](https://book.douban.com/subject/26051883/)
-
++ [末日焚书](https://www.douban.com/note/198563132/)
++ 
 ### Reading
 + [Python Cookbook](http://shop.oreilly.com/product/0636920027072.do "Python Cookbook")
 + [追忆似水年华](https://book.douban.com/subject/1983479/)
