@@ -25,13 +25,18 @@ permalink: /books/
 + [一句话顶一万句](https://book.douban.com/subject/3633461/)
 + [老生](https://book.douban.com/subject/26051883/)
 + [末日焚书](https://www.douban.com/note/198563132/)
-+ 
+
+
+
 ### Reading
 + [Python Cookbook](http://shop.oreilly.com/product/0636920027072.do "Python Cookbook")
 + [追忆似水年华](https://book.douban.com/subject/1983479/)
 + [爱与数学](https://book.douban.com/subject/26740091/)
 + [出埃及记](https://book.douban.com/subject/3228779/)
 + [秦腔](https://book.douban.com/subject/1281653/)
++ [人类简史：从动物到上帝](https://book.douban.com/subject/25985021/)
+
+
 
 ### List
 + 《重构》

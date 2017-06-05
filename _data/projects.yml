@@ -1,0 +1,23 @@
+- title: ISeg 2017
+  link: http://iseg2017.web.unc.edu/
+  desc: MICCAI Grand Challenge on 6-month Infant Brain MRI Segmentation.
+
+- title: The GitHub Blog
+  link: https://zengyu714.github.io/
+  desc: Use Jekyll with GitHub Pages for personal blog.
+
+- title: Segment with TensorFlow
+  link: https://github.com/zengyu714/segmentation
+  desc: Practice several FCNs to segment IVDs with TensorFlow.
+
+- title: Medical Image Processing
+  link: https://github.com/zengyu714/medical-image-processing
+  desc: Exercise common image-processing operations using Python3.
+
+- title: Face Detection in Raspberry Pi
+  link: https://github.com/zengyu714/faceppCam
+  desc: Detect faces using OpenCV and facepp.
+
+- title: Segment with PyTorch
+  link: https://github.com/zengyu714/segmentation-pytorch
+  desc: Practice several FCNs to segment IVDs with PyTorch.

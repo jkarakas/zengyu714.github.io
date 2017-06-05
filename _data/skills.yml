@@ -1,0 +1,46 @@
+- title: Languages
+  items:
+    - name: Python
+      level: 3
+    - name: Matlab
+      level: 3
+    - name: C++
+      level: 2
+    - name: C
+      level: 2
+    - name: R
+      level: 0
+    - name: Shell
+      level: 1
+
+- title: Deep Learning Framework
+  items:
+    - name: PyTorvh
+      level: 3
+    - name: TensorFlow
+      level: 3
+    - name: Caffe
+      level: 3
+    - name: Keras
+      level: 2
+
+- title: Web
+  items:
+    - name: CSS
+      level: 0
+    - name: Jekyll
+      level: 2
+
+
+- title: Misc
+  items:
+    - name: Regex
+      level: 2
+    - name: Guitar
+      level: 2
+    - name: Jeet Kune Do
+      level: 2
+    - name: Writing
+      level: 2
+    - name: Basketball
+      level: 3
