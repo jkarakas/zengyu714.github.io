@@ -9,9 +9,10 @@
 <meta charset="UTF-8">
 <title>{{ site.title }}</title>
 <meta name="viewport" content="width=device-width">
-<meta name="author" content="Avi Aryan">
-<link rel="author" href="https://plus.google.com/u/0/+AviAryan/posts">
+<meta name="author" content="Zeng YU">
+<link rel="author" href="https://github.com/zengyu714">
 <meta name="description" content="{{ site.description }}">
+<link rel="shortcut icon" type="image/png" href="/styles/images/favicon.png">
 
 {% assign islocal = false %}
 {% for static_file in site.static_files %}
@@ -61,13 +62,13 @@
 
 <div id="content">
 
+{% include contact.html %}
 {% include education.html %}
 {% include projects.html %}
 {% include awards.html %}
 {% include skills.html %}
 {% include work.html %}
 {% include social.html %}
-{% include contact.html %}
 {% include references.html %}
 
 </div>
