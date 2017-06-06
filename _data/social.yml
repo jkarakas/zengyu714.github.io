@@ -1,15 +1,15 @@
-- title: GitHub
-  username: zengyu714
-  link: https://github.com/zengyu714
-
+# - title: GitHub
+#   username: zengyu714 <br>
+#   link: https://github.com/zengyu714
+#
 - title: Twitter
   username: ZengYu
   link: https://twitter.com/ZengDayu
-
-- title: Facebook
-  username: Yu Zeng
-  link: https://www.facebook.com/yu.zeng.0714
-
-- title: CSDN
-  username: 锡同
-  link: http://blog.csdn.net/zykimmy
+#
+# - title: Facebook
+#   username: Yu Zeng
+#   link: https://www.facebook.com/yu.zeng.0714
+#
+# - title: CSDN
+#   username: 锡同
+#   link: http://blog.csdn.net/zykimmy
